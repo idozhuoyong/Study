@@ -13,4 +13,5 @@ def fib(n):
         fibs.append(fibs[idx-1] + fibs[idx-2])
     return fibs
 
+# 打印出前10个斐波拉契数列
 print(fib(10))
