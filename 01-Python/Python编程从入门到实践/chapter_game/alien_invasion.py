@@ -3,6 +3,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 def run_game():
     # 初始化
@@ -16,9 +17,7 @@ def run_game():
 
     while True:
         # 监听键盘和鼠标
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_event()
 
         # 重新绘制屏幕
         screen.fill(ai_settings.bg_color) # 填充背景颜色
