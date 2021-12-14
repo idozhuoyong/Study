@@ -18,6 +18,8 @@ def run_game():
     while True:
         # 监听键盘和鼠标
         gf.check_event(ship)
+        # 更新飞船
+        ship.update()
         # 更新屏幕
         gf.update_screen(ai_settings, screen, ship)
 
