@@ -31,7 +31,7 @@ def check_keyup_events(event, ship):
         # 结束向下移动
         ship.moving_down = False
 
-def check_event(ship):
+def check_events(ai_settings, screen, ship, bullets):
     """ 响应按键和鼠标时间 """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,7 +41,7 @@ def check_event(ship):
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
     
-def update_screen(ai_settings, screen, ship):
+def update_screen(ai_settings, screen, ship, bullets):
     """ 更新屏幕上的图像，并切换到新图像 """
     # 重新绘制屏幕
     screen.fill(ai_settings.bg_color) # 填充背景颜色

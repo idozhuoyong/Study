@@ -1,5 +1,6 @@
 import sys
 import pygame
+import pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
@@ -14,13 +15,16 @@ def run_game():
 
     # 创建一艘飞船
     ship = Ship(ai_settings, screen)
+    # 创建子弹编组
+    bullets = Group()
 
     while True:
         # 监听键盘和鼠标
-        gf.check_event(ship)
+        gf.check_events(ai_settings, screen, ship, bullets)
         # 更新飞船
-        ship.update()
+        ship.update() # 飞船
+        bullets.update() # 子弹
         # 更新屏幕
-        gf.update_screen(ai_settings, screen, ship)
+        gf.update_screen(ai_settings, screen, ship, bullets)
 
 run_game()
