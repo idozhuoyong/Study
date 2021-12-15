@@ -9,12 +9,12 @@ def check_keydown_events(event, ship):
     elif event.key == pygame.K_LEFT:
         # 向左移动
         ship.moving_left = True
-    elif event.key == pygame.K_TOP:
+    elif event.key == pygame.K_UP:
         # 向上移动
-        ship.moving_top = True
-    elif event.key == pygame.K_BOTTOM:
+        ship.moving_up = True
+    elif event.key == pygame.K_DOWN:
         # 向下移动
-        ship.moving_bottom = True
+        ship.moving_down = True
 
 def check_keyup_events(event, ship):
     """ 响应松开 """
@@ -24,12 +24,12 @@ def check_keyup_events(event, ship):
     elif event.key == pygame.K_LEFT:
         # 结束向左移动
         ship.moving_left = False
-    elif event.key == pygame.K_TOP:
+    elif event.key == pygame.K_UP:
         # 结束向上移动
-        ship.moving_top = False
-    elif event.key == pygame.K_BOTTOM:
+        ship.moving_up = False
+    elif event.key == pygame.K_DOWN:
         # 结束向下移动
-        ship.moving_bottom = False
+        ship.moving_down = False
 
 def check_event(ship):
     """ 响应按键和鼠标时间 """
