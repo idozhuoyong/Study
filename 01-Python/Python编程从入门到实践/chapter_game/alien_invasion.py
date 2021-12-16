@@ -1,6 +1,6 @@
 import sys
 import pygame
-import pygame.sprite import Group
+from pygame.sprite import Group
 
 from settings import Settings
 from ship import Ship
