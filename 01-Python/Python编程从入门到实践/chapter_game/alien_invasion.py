@@ -23,7 +23,7 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
         
         # 更新飞船
-        ship.update() # 飞船
+        ship.update()
         # 更新子弹
         gf.update_bullets(bullets)
 
