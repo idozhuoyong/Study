@@ -17,6 +17,9 @@ def run_game():
     ship = Ship(ai_settings, screen)
     # 创建子弹编组
     bullets = Group()
+    # 创建外星人群
+    aliens = Group()
+    gf.create_fleet(ai_settings, screen, aliens)
 
     while True:
         # 监听键盘和鼠标
@@ -28,6 +31,6 @@ def run_game():
         gf.update_bullets(bullets)
 
         # 更新屏幕
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 run_game()

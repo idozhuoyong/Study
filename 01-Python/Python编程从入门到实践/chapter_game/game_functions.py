@@ -1,6 +1,7 @@
 import sys
 import pygame
 from bullet import Bullet
+from alien import Alien
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """ 响应按键 """
@@ -65,7 +66,20 @@ def update_bullets(bullets):
             bullets.remove(bullet)
     # print(len(bullets))
     
-def update_screen(ai_settings, screen, ship, bullets):
+def create_fleet(ai_settings, screen, aliens):
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    available_space_x = ai_settings.screen_width - 2*alien_width
+    number_aliens_x = int(available_space_x / (2*alien_width))
+
+    # 创建一行外星人
+    for alien_number in range(number_aliens_x):
+        alien = Alien(ai_settings, screen)
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        aliens.add(alien)
+
+def update_screen(ai_settings, screen, ship, aliens, bullets):
     """ 更新屏幕上的图像，并切换到新图像 """
     # 重绘屏幕
     screen.fill(ai_settings.bg_color) # 填充背景颜色
@@ -74,6 +88,9 @@ def update_screen(ai_settings, screen, ship, bullets):
         bullet.draw_bullet()
     # 重绘飞船
     ship.blitme()
+    
+    # 重绘外星人
+    aliens.draw(screen)
 
     # 让最近绘制的屏幕可见
     pygame.display.flip()
