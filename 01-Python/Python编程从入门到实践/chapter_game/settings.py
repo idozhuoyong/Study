@@ -22,7 +22,7 @@ class Settings():
         self.speedup_scale = 1.1 
 
         # 初始化动态配置
-        initialize_dynamic_settings()
+        self.initialize_dynamic_settings()
     
     def initialize_dynamic_settings(self):
         """ 初始化随游戏进行而变化的设置 """
