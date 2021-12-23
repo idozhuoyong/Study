@@ -167,7 +167,7 @@ def update_aliens(ai_settings, stats, screen, ship, aliens, bullets):
     # 检查是否有外星人到达屏幕底端
     check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
 
-def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
+def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button):
     """ 更新屏幕上的图像，并切换到新图像 """
     # 重绘屏幕
     screen.fill(ai_settings.bg_color) # 填充背景颜色
@@ -179,6 +179,9 @@ def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button
     
     # 重绘外星人
     aliens.draw(screen)
+
+    # 显示得分
+    sb.show_score()
 
     # 如果游戏处理非活动状态，就绘制 Play 按钮
     if not stats.game_active:
