@@ -12,6 +12,7 @@ Python解释器
 CPython、PyPy、Jython、IronPython  
 
 ## Python基础语法
+动态、强类型语言
 1. 注释
 2. 数字（整数、浮点数、复数）
 3. 字符串
