@@ -16,22 +16,31 @@
 from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for x in nums:
-            y = target - x
-            if y in nums:
-                index1 = nums.index(x)
-                nums.reverse()
-                index2 = len(nums) - nums.index(y) - 1
-                nums.reverse()
-                if index1 != index2:
-                    result = [index1, index2]
-                    print(result)
-                    return result
+        # 方式一
+        # for x in nums:
+        #     y = target - x
+        #     if y in nums:
+        #         index1 = nums.index(x)
+        #         nums.reverse()
+        #         index2 = len(nums) - nums.index(y) - 1
+        #         nums.reverse()
+        #         if index1 != index2:
+        #             result = [index1, index2]
+        #             print(result)
+        #             return result
+
+        # 方式二
+        hashmap = {}
+        for index, num in enumerate(nums):
+            if hashmap.get(target - num) is not None:
+                return [index, hashmap.get(target - num)]
+            hashmap[num] = index
+            # print(hashmap)
 
 s = Solution()
-s.twoSum([3, 3], 6)
-s.twoSum([2,7,11,15], 9)
-s.twoSum([2,5,5,11], 10)
+# s.twoSum([3, 3], 6)
+# s.twoSum([2,7,11,15], 9)
+print(s.twoSum([2,5,5,11], 10))
 
 
 
