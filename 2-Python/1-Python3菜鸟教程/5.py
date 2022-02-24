@@ -37,3 +37,12 @@
 #     print(a2)
 #     print(vardict)
 # printinfo(1, 2, a=3, b=4, c=5)
+
+# a = 10
+# def f1():
+#     print(a)
+# f1()
+
+# 匿名函数
+sum = lambda a, b : a + b
+print(sum(10, 20))
