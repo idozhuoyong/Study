@@ -11,9 +11,12 @@
 #     print(i)
 
 
-def max(a, b):
-    if a > b:
-        return a
-    else:
-        return b
-print(max(10, 80))
+def change(la):
+    print('a1: ', la)
+    la[2] = 10
+    print('a2: ',la)
+
+la = [1, 2, 3, 4]
+print('b1: ', la)
+change(la)
+print('b2: ', la)
