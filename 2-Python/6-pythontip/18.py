@@ -6,4 +6,28 @@
 a = 3
 b = 60
 
-# for i 
+resultArr = []
+for i in range(a, b+1, 1):
+    for j in range(i, b+1, 1):
+        # 计算i和j的最大公约数
+        m = -1
+        for x in range(i, 0, -1):
+            if i % x == 0 and j % x == 0:
+                m = x
+                break
+        if m != a:
+            continue
+        # 计算i和j的最小公倍数
+        n = -1
+        for x in range(j, b+1):
+            if x % i == 0 and x % j == 0:
+                n = x
+                break
+        if n == b:
+            resultArr.append((i, j))
+
+sums = []
+for item in resultArr:
+    sums.append(item[0]+item[1])
+result = resultArr[sums.index(min(sums))]
+print(result[0], result[1])
