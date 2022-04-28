@@ -56,10 +56,9 @@ import datetime
 
 n = 100000
 start = datetime.datetime.now()
-count = 1
-
-primenumbers = [2]
-for x in range(3, n+1, 2):
+count = 2
+primenumbers = [3]
+for x in range(5, n+1, 2):
     flag = False
     edge = int(x ** 0.5)
     for i in primenumbers:
@@ -69,7 +68,6 @@ for x in range(3, n+1, 2):
         if x % i == 0: # 是合数
             flag = False
             break
-
     if flag:
         count += 1
         primenumbers.append(x)
