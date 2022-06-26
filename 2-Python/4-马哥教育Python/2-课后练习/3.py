@@ -52,25 +52,32 @@ count = 0
 # print('count = {}, delta = {}'.format(count, delta))
 
 
+# import datetime
+
+# n = 100000
+# start = datetime.datetime.now()
+# count = 2
+# primenumbers = [3]
+# for x in range(5, n+1, 2):
+#     flag = False
+#     edge = int(x ** 0.5)
+#     for i in primenumbers:
+#         if i > edge: # 是质数
+#             flag = True
+#             break
+#         if x % i == 0: # 是合数
+#             flag = False
+#             break
+#     if flag:
+#         count += 1
+#         primenumbers.append(x)
+# delta = (datetime.datetime.now() - start).total_seconds()
+# print(count, delta)
+# print('-' * 30)
+
+
 import datetime
 
-n = 100000
-start = datetime.datetime.now()
-count = 2
-primenumbers = [3]
-for x in range(5, n+1, 2):
-    flag = False
-    edge = int(x ** 0.5)
-    for i in primenumbers:
-        if i > edge: # 是质数
-            flag = True
-            break
-        if x % i == 0: # 是合数
-            flag = False
-            break
-    if flag:
-        count += 1
-        primenumbers.append(x)
-delta = (datetime.datetime.now() - start).total_seconds()
-print(count, delta)
-print('-' * 30)
+n = 100
+for x in (6, n+1, 6):
+    pass
