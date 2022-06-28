@@ -29,3 +29,10 @@ str2 + String(c1)
 // 6.字符串插值
 let num1 = 1
 "\(num1) * 2 = \(num1 * 2)"
+
+// 7.计算字符数量
+var word = " cafe "
+word.count
+
+// 8.访问和修改字符串
+
