@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct CircleImage: View {
+    let image: Image
     var body: some View {
-        Image("turtlerock")
+        //Image("turtlerock")
+        image
             .interpolation(.none) // 插值
             .antialiased(true) // 抗锯齿
-//            .resizable(capInsets: EdgeInsets(), resizingMode: .tile)
-//            .frame(height: 40)
+            //.resizable(capInsets: EdgeInsets(), resizingMode: .tile)
+            //.frame(height: 40)
             .clipShape(Circle()) // 裁剪
-//            .mask(Circle())
-//            .cornerRadius(15)
+            //.mask(Circle())
+            //.cornerRadius(15)
             .overlay(Circle().stroke(Color.white, lineWidth: 4))
             .shadow(radius: 10) // 阴影
     }
@@ -24,6 +26,6 @@ struct CircleImage: View {
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage()
+        CircleImage(image: Image("turtlerock"))
     }
 }
