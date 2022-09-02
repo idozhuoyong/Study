@@ -29,6 +29,8 @@
 		2182F08C28C06442003F9FDF /* umbagog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2182F07F28C06441003F9FDF /* umbagog.jpg */; };
 		2182F08D28C06442003F9FDF /* chincoteague.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2182F08028C06441003F9FDF /* chincoteague.jpg */; };
 		2182F08E28C06442003F9FDF /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2182F08128C06441003F9FDF /* landmarkData.json */; };
+		2182F09028C09477003F9FDF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182F08F28C09477003F9FDF /* Data.swift */; };
+		2182F09228C094CE003F9FDF /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2182F09128C094CE003F9FDF /* Landmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		2182F07F28C06441003F9FDF /* umbagog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = umbagog.jpg; sourceTree = "<group>"; };
 		2182F08028C06441003F9FDF /* chincoteague.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chincoteague.jpg; sourceTree = "<group>"; };
 		2182F08128C06441003F9FDF /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
+		2182F08F28C09477003F9FDF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2182F09128C094CE003F9FDF /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 		2182F06F28C05F84003F9FDF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2182F08F28C09477003F9FDF /* Data.swift */,
+				2182F09128C094CE003F9FDF /* Landmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2182F09028C09477003F9FDF /* Data.swift in Sources */,
 				2182F06728C05DC5003F9FDF /* LandmarksList.swift in Sources */,
 				2182F06C28C05E86003F9FDF /* MapView.swift in Sources */,
+				2182F09228C094CE003F9FDF /* Landmark.swift in Sources */,
 				2182F07328C06084003F9FDF /* LandmarkRow.swift in Sources */,
 				2182F04D28BCB1D9003F9FDF /* LandmarksApp.swift in Sources */,
 				2182F07128C05FC5003F9FDF /* LandmarkDetail.swift in Sources */,

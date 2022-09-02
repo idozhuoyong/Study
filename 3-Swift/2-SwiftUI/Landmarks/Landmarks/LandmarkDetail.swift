@@ -11,25 +11,27 @@ import CoreLocation
 struct LandmarkDetail: View {
     @State private var inputMessage = ""
     
+    let landmark: Landmark
+    
     var body: some View {
         VStack() {
             
-            MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+            MapView(coordinate: landmark.locationCoordinate)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 300)
             
-            CircleImage(image: Image("turtlerock"))
+            CircleImage(image: landmark.image)
                 .offset(x: 0, y: -130)
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("Turtle Rock")
+                Text(landmark.name)
                     .font(.title)
                 HStack(alignment: .top, spacing: 0) {
-                    Text("Joshua Tree National Park")
+                    Text(landmark.park)
                         .font(.subheadline)
                     Spacer()
-                    Text("California")
+                    Text(landmark.state)
                         .font(.subheadline)
                 }
             }
@@ -51,6 +53,6 @@ struct LandmarkDetail: View {
 
 struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkDetail()
+        LandmarkDetail(landmark: landmarkData[0])
     }
 }
