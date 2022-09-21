@@ -11,7 +11,10 @@ import CoreLocation
 struct LandmarkDetail: View {
     @State private var inputMessage = ""
     
+    @EnvironmentObject var userData: UserData
     let landmark: Landmark
+    
+    
     
     var body: some View {
         VStack() {
@@ -25,8 +28,27 @@ struct LandmarkDetail: View {
                 .padding(.bottom, -130)
             
             VStack(alignment: .leading, spacing: 0) {
-                Text(landmark.name)
-                    .font(.title)
+                HStack {
+                    Text(landmark.name)
+                        .font(.title)
+                        
+                    Button(action: {
+                        let landmarkIndex: Int = self.userData.landmarks.firstIndex(where: { $0.id == landmark.id }) ?? 0
+                        self.userData.landmarks[landmarkIndex].isFavorite.toggle()
+                    }) {
+                        if landmark.isFavorite {
+                            Image(systemName: "star.fill")
+                                .imageScale(.medium)
+                                .foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "star")
+                                .imageScale(.medium)
+                                .foregroundColor(.gray)
+                        }
+                        
+                    }
+                }
+                
                 HStack(alignment: .top, spacing: 0) {
                     Text(landmark.park)
                         .font(.subheadline)
