@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createElement } from './jsxHandle'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -37,6 +38,25 @@ console.log(React.createElement(
   )
 ))
 
+console.log('----分割线-----');
+console.log(createElement(
+  React.Fragment,
+  null,
+  createElement(
+    "h2",
+    { className: "title", style: styObj },
+    "学习"
+  ),
+  createElement(
+    "div", 
+    { className: "box" },
+    createElement("span", null, x),
+    createElement("span", null, y)
+  )
+))
+
+
+console.log('----分割线-----');
 console.log(
   React.createElement("div", null)
 );
