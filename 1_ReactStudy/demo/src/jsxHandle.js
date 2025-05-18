@@ -121,6 +121,8 @@ export function render(virtualDOM, container) {
 
     if (typeof type === "function") {
         // 完善函数组件
+        let ele = type()
+        render(ele, container)
         return;
     }
 }
