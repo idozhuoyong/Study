@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const DemoOne = function DemoOne(props) {
     let { className, style, title } = props
     let { x = 0 } = props
@@ -16,9 +18,9 @@ const DemoOne = function DemoOne(props) {
 
 // 参数校验
 // 「15.5之后不推荐，react19已废弃」
-// DemoOne.propTypes = {
-//     title: PropTypes.string.isRequired,
-//     x: PropTypes.number
-// }
+DemoOne.propTypes = {
+    title: PropTypes.string.isRequired,
+    x: PropTypes.number
+}
 
 export default DemoOne;

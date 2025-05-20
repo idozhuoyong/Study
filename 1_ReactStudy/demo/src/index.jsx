@@ -15,7 +15,7 @@ root.render(
             <span>哈哈</span>
         </DemoOne>
 
-        <DemoOne title="标题2" x='10'>
+        <DemoOne title="标题2" x={10}>
             <span>呵呵</span>
             <span>哈哈</span>
         </DemoOne>
