@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作 DOM 的 Demo</title>
+</head>
+
+<body>
+    <div>
+        <span id="textSpan">0</span>
+    </div>
+    <button id="submitBtn">累加</button>
+
+    <script>
+        // 操作谁，就获取谁
+        let textSpan = document.querySelector("#textSpan"),
+            submitBtn = document.querySelector("#submitBtn");
+        
+
+        // 增加事件绑定
+        let num = 0;
+        submitBtn.addEventListener("click", function() {
+            num++;
+            textSpan.innerHTML = num;
+        })
+    </script>
+</body>
+
+</html>
