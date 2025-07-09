@@ -5,7 +5,8 @@ import React from 'react';
 // import Vote from './views/Vote';
 // import Demo from './views/Demo2';
 // import Demo from './views/Demo3';
-import Demo from './views/Demo4';
+// import Demo from './views/Demo4';
+import Demo from './views/Demo5';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
