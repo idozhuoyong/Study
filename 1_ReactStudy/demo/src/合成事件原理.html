@@ -1,0 +1,99 @@
+<!-- /*
+ React 中合成事件的处理原理
+    绝对不是给当前元素基于 addEventListener 单独做的事件绑定，React 中的合成事件都是基于“事件委托”处理的
+        + 在React17及以后版本，都是委托为#root这个容器「捕获和冒泡都做了委托」
+        + 在17版本以前，都是委托给document容器的「而且只做了冒泡阶段的委托」
+        + 对于没有实现事件传播机制的事件，才是单独做的事件绑定「例如：onMouseEnter/onMouseLeave」
+    
+    在组件渲染的时候，如果发现JSX元素属性中有 onXxx/onXxxCapture 这样的属性，不会给当前元素直接做事件绑定，只是把绑定的方法赋值给元素的相关属性！！例如：
+        outer.onClick = () => { console.log('outer 冒泡「合成」') } // 这不是DOM的0级事件绑定「这样的才是 outer.onclick」
+        outer.onClickCapter = () => { console.log('outer 捕获「合成」') }
+        inner.onClick = () => { console.log('inner 冒泡「合成」') }
+        inner.onClickCapter = () => { console.log('inner 捕获「合成」') }
+
+    然后对#root这个容器做了事件绑定「捕获和冒泡都做了」
+        原因：因为组件中所渲染的内容，最后都会插入到#root容器中，这样点击页面中任何一个元素，都会触发#root的点击行为。而在给#root绑定的方法中，把之前给元素设置的onXxx/onXxxCapture属性，在相应的阶段执行！！
+ */ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合成事件的原理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        html,body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #root {
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+        }
+
+        #outer {
+            width: 200px;
+            height: 200px;
+            background: lightgreen;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="center">
+        <div id="outer" class="center">
+            <div id="inner" class="center"></div>
+        </div>
+    </div>
+
+    <!-- IMPORT JS -->
+     <script>
+        const root = document.querySelector("#root"),
+            outer = document.querySelector("#outer"),
+            inner = document.querySelector("#inner");
+
+        // 经过视图渲染解析，outer/inner上都有onXxxx/onXxxCapture这样的属性
+        outer.onClick = () => { console.log('outer 冒泡「合成」') }
+        outer.onClickCapter = () => { console.log('outer 捕获「合成」') }
+        inner.onClick = () => { console.log('inner 冒泡「合成」') }
+        inner.onClickCapter = () => { console.log('inner 捕获「合成」') }
+
+        // 给#root做事件绑定
+        root.addEventListener("click", (ev) => {
+            // 时间捕获
+            let path = ev.path || (ev.composedPath && ev.composedPath());
+            [...path].reverse().forEach(ele => {
+                let handle = ele.onClickCapter;
+                if (handle) handle();
+            });
+        }, true);
+        root.addEventListener("click", (ev) => {
+            // 冒泡
+            let path = ev.path || (ev.composedPath && ev.composedPath());
+            path.forEach(ele => {
+                let handle = ele.onClick;
+                if (handle) handle();
+            });
+        }, false);
+     </script>
+     
+</body>
+</html>
