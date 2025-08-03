@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        html,body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #root {
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+        }
+
+        #outer {
+            width: 200px;
+            height: 200px;
+            background: lightgreen;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="center">
+        <div id="outer" class="center">
+            <div id="inner" class="center"></div>
+        </div>
+    </div>
+
+    <!-- IMPORT JS -->
+     <script>
+        // 层级结构 window -> document -> html -> body -> root -> outer -> inner
+        // ev.stopPropagation 阻止事件的传播「包含捕获、冒泡」
+        // ev.stopImmediatePropagation 也是阻止事件传播，只不过他可以把当前元素绑定的其它方法，如果还未执行，也不会让其执行了
+        const html = document.documentElement,
+            body = document.body,
+            root = document.querySelector("#root"),
+            outer = document.querySelector("#outer"),
+            inner = document.querySelector("#inner");
+
+        root.addEventListener("click", () => {
+            console.log("root 捕获");
+        }, true);
+        root.addEventListener("click", () => {
+            console.log("root 冒泡");
+        }, false);
+
+        outer.addEventListener("click", () => {
+            console.log("outer 捕获");
+        }, true);
+        outer.addEventListener("click", () => {
+            console.log("outer 冒泡");
+        }, false);
+        
+        inner.addEventListener("click", () => {
+            console.log("inner 捕获");
+        }, true);
+        inner.addEventListener("click", (ev) => {
+            // ev.stopPropagation(); // 阻止传播
+            ev.stopImmediatePropagation()
+            console.log("inner 冒泡");
+        }, false);
+     </script>
+
+     
+</body>
+</html>
