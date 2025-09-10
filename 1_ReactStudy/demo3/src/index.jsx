@@ -5,7 +5,8 @@ import ReactDOM from 'react-dom/client';
 // import Demo from './views/Demo3';
 // import Vote from './views/classDemo/Vote'
 // import Vote from './views/funcDemo/Vote'
-import Vote from './views/classContextDemo/Vote'
+// import Vote from './views/classContextDemo/Vote'
+import Vote from './views/funcContextDemo/Vote'
 /* 使用ANTD组件库 */
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
