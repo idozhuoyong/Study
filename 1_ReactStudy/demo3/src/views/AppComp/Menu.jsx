@@ -2,7 +2,7 @@ import React from "react";
 import "./Menu.less"
 
 const Menu = function Menu() {
-    return <div className="menu-box">
+    return <div className="box">
         <ul className="list">
             <li>手机</li>
             <li>电脑</li>
