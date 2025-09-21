@@ -1,7 +1,8 @@
 import React from "react";
 // import './Nav.less';
 // import sty from './Nav.module.css';
-import { createUseStyles } from 'react-jss';
+// import { createUseStyles } from 'react-jss';
+import { NavBox, NavBarBox } from "./NavStyle";
 
 /*
 基于 createUseStyles 方法，构建组件需要的样式
@@ -31,29 +32,29 @@ import { createUseStyles } from 'react-jss';
       font-size: 16px;
     }
 */
-const useStyles = createUseStyles({
-    box: {
-        backgroundColor: 'lightblue',
-        width: '300px'
-    },
-    title: {
-        fontSize: '20px',
-        color: 'red',
-        '&:hover': {
-            color: props => props.color
-        }
-    },
-    list: props => {
-        return { 
-            // '& a' => .list a {}
-            // '&>a' => .list>a {}
-            '& a': {
-                fontSize: props.fontSize + 'px',
-                color: '#000'
-            }
-        }
-    }
-});
+// const useStyles = createUseStyles({
+//     box: {
+//         backgroundColor: 'lightblue',
+//         width: '300px'
+//     },
+//     title: {
+//         fontSize: '20px',
+//         color: 'red',
+//         '&:hover': {
+//             color: props => props.color
+//         }
+//     },
+//     list: props => {
+//         return { 
+//             // '& a' => .list a {}
+//             // '&>a' => .list>a {}
+//             '& a': {
+//                 fontSize: props.fontSize + 'px',
+//                 color: '#000'
+//             }
+//         }
+//     }
+// });
 
 const Nav = function Nav() {
     // Nav.less 版本
@@ -78,19 +79,28 @@ const Nav = function Nav() {
     // </nav>
 
     // createUseStyles 版本
-    let { box, title, list } = useStyles({
-        fontSize: 14,
-        color: 'orange'
-    });
+    // let { box, title, list } = useStyles({
+    //     fontSize: 14,
+    //     color: 'orange'
+    // });
+    // return <nav className={box}>
+    //     <h2 className={title}>购物商场</h2>
+    //     <div className={list}>
+    //         <a href="a">首页</a>
+    //         <a href="a">秒杀</a>
+    //         <a href="a">我的</a>
+    //     </div>
+    // </nav>
 
-    return <nav className={box}>
-        <h2 className={title}>购物商场</h2>
-        <div className={list}>
+    // styled-components版本
+    return <NavBox>
+        <h2 className="title">购物商城</h2>
+        <NavBarBox size={20} hoverColor="#ffe58f">
             <a href="a">首页</a>
             <a href="a">秒杀</a>
             <a href="a">我的</a>
-        </div>
-    </nav>
+        </NavBarBox>
+    </NavBox>
 }
 
 export default Nav;
