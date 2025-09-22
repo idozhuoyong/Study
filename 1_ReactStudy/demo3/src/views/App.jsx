@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./AppComp/Nav";
 import Menu from "./AppComp/Menu";
 // import './App.less'
-import Demo from './AppComp/Demo';
+// import Demo from './AppComp/Demo';
 
 const App = function App() {
     return <div className="home-box">
