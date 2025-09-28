@@ -13,12 +13,20 @@ import Vote from "./views/reduxDemo1a/Vote";
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import './index.less';
+/* REDUX */
+import store from './store';
+import ThemeContext from "./views/reduxDemo1a/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ConfigProvider locale={zhCN}>
         {/* <Demo /> */}
-        <Vote />
         {/* <App /> */}
+        <ThemeContext.Provider
+            value={{
+                store
+            }}>
+            <Vote />
+        </ThemeContext.Provider>
     </ConfigProvider>
 );

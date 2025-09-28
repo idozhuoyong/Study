@@ -1,12 +1,24 @@
 import React from "react";
+import ThemeContext from "./ThemeContext";
+import store from "../../store";
 
 class VoteMain extends React.Component {
-    render() {
-        let { supNum, oppNum } = this.props;
+    static contextType = ThemeContext;
+
+    render() {        
+        const { store } = this.context;
+        let { supNum, oppNum } = store.getState();
+
         return <div className="main">
             <p>支持人数：{supNum}人</p>
             <p>反对人数：{oppNum}人</p>
         </div>;
+    }
+
+    componentDidMount() {
+        store.subscribe(() => { 
+            this.forceUpdate();
+        })
     }
 }
 export default VoteMain;
