@@ -7,7 +7,7 @@ import ThemeContext from "./ThemeContext";
 const Vote = function Vote() {
     const { store } = useContext(ThemeContext);
     // 获取容器中的公共状态
-    let { supNum, oppNum } = store.getState();
+    let { supNum, oppNum } = store.getState().vote;
 
     let [_, setNum] = useState(0);
     useEffect(() => {
