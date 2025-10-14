@@ -1,5 +1,6 @@
 /* Vote模块下的reducer */
 import _ from "@/assets/utils";
+import * as TYPES from "../action-types";
 const initial = {
     supNum: 10,
     oppNum: 5,
@@ -8,10 +9,10 @@ const initial = {
 export default function voteReducer(state = initial, action) { 
     state = _.clone(true, state);
     switch (action.type) {
-        case 'VOTE_SUP': 
+        case TYPES.VOTE_SUP: 
             state.supNum++
             break;
-        case 'VOTE_OPP':
+        case TYPES.VOTE_OPP:
             state.oppNum++;
             break;
         default:
