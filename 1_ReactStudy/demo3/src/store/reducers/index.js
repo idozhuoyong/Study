@@ -19,7 +19,8 @@
         }
 
 */
-import { combineReducers } from "redux";
+// import { combineReducers } from "redux";
+import combineReducers from "../myredux-combineReducers";
 import voteReducer from "./voteReducer";
 import personalReducer from "./personalReducer";
 
